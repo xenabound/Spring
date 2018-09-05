@@ -53,7 +53,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public MataKuliah delete(Student param) {
+    public Student delete(Student param) {
         String sql = "delete from table_student where id = ?";
         final KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(con -> {
@@ -66,6 +66,7 @@ public class StudentDAOImpl implements StudentDAO {
         param.setId(keyHolder.getKey().intValue());
         return param;
     }
+
 
     @Override
     public List<Student> find() {

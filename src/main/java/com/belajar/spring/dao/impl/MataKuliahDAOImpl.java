@@ -78,25 +78,33 @@ public class MataKuliahDAOImpl implements MataKuliahDAO {
         return null;
     }
 
+
     @Override
     public List<Report> findByIdMatakuliah(int id) {
-        String sql = "select * " +
-                "from table_student_matakuliah id on table_matakuliah.id = table_student_matakuliah.id_matakuliah " +
-                "where table_matakuliah = "+id;
+        String sql = "select  * " +
+                "from table_student_matakuliah " +
+        "inner join table_student student on table_student_matakuliah.id = student.id "+
+        "where student.id = "+id;
         return null;
     }
 
     @Override
     public List<Report> findMataKuliahByStudent(int id) {
+        String sql = "select * " +
+        "from table_student " +
+        "inner join table_student_matakuliah matakuliah on table_student.id = table_student.id " +
+        "where table_student.id = " + id;
+
         return null;
     }
+
 
     @Override
     public List<Report> findMataKuliahByid(int id) {
         String sql = "select * " +
                 "from table_matakuliah " +
                 "inner join table_student_matakuliah student on table_student.id = table_student_matakuliah.id_mata_kuliah " +
-                "where table_student.id = "+id;
+                "where table_student.id = "+ id;
         return null;
     }
 }

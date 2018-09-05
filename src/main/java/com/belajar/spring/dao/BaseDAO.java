@@ -4,10 +4,7 @@ import com.belajar.spring.entity.MataKuliah;
 
 import java.util.List;
 
-/**
- * Created by sukenda on 29/07/18.
- * Project belajar-spring
- */
+
 public interface BaseDAO<T> {
 
     T save(T param);
